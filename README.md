@@ -19,7 +19,7 @@ No terminal, na pasta raiz do projeto, rode:
 ```bash
 flutter pub get
 flutter run
-'''bash
+exit
 
 Observações importantes
 A chave da API do Google Maps já está incluída no código, portanto não é necessário configurar nada adicional para o mapa funcionar.
@@ -37,7 +37,7 @@ Caso o emulador ou navegador não funcione corretamente faça o seguinte:
 Abra o terminal e digite:
 '''bash
 flutter run -d web-server
-'''bash
+exit
 pegue o link gerado (ex: http://localhost:12345) e cole no navegador de sua preferência.
 
 Serviços web utilizados:
