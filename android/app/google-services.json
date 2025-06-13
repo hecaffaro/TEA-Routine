@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "579243881828",
+    "project_id": "tea-routine",
+    "storage_bucket": "tea-routine.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579243881828:android:9283d13fe9f0770ccd3671",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8AA4rKsGY08NBm1vJCk7bvrm12F0I0Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579243881828:android:9691f3c59e131ebdcd3671",
+        "android_client_info": {
+          "package_name": "routine.tea"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8AA4rKsGY08NBm1vJCk7bvrm12F0I0Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
