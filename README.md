@@ -29,7 +29,7 @@ Para evitar erros de plugins, ative o Modo Desenvolvedor:
 
 - Reinicie o computador, se necessário
 
-## 🌐 Executar no Navegador (caso o emulador não funcione)
+## 🌐 (IMPORTANTE) Executar por link no navegador (caso o emulador ou o projeto não funcionem corretamente)
 
 - No terminal, execute:
   
