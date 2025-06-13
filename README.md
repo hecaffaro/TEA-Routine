@@ -1,57 +1,69 @@
-# TEA Routine
+📱 TEA Routine
+Aplicativo Flutter desenvolvido para o projeto Smart HAS, com telas de Login, Notícias, Agenda, Jogos e Mapa integrado com Google Maps.
 
-App Flutter para o projeto Smart HAS, com telas de login, notícias, agenda, jogos e mapa integrado com Google Maps.
+✅ Pré-requisitos
+Flutter SDK (versão 3.0 ou superior recomendada)
 
----
+Android Studio ou VS Code com plugins Flutter/Dart
 
-## Pré-requisitos
+Emulador ou dispositivo físico com acesso à internet
 
-- Flutter SDK instalado (versão 3.0 ou superior recomendada)  
-- Android Studio ou VS Code com plugins Flutter/Dart  
-- Dispositivo ou emulador com acesso à internet  
+🚀 Rodando o Projeto
+No terminal, dentro da pasta raiz do projeto, execute:
 
----
-
-## Rodando o projeto
-
-No terminal, na pasta raiz do projeto, rode:
-
-```bash
+bash
+Copiar
+Editar
 flutter pub get
 flutter run
-exit
+💡 Caso esteja usando Windows:
+Para evitar erros de plugins, ative o Modo Desenvolvedor:
 
-Observações importantes
-A chave da API do Google Maps já está incluída no código, portanto não é necessário configurar nada adicional para o mapa funcionar.
+Pressione Win + R, digite:
 
-O app solicitará permissão de localização em tempo de execução.
+makefile
+Copiar
+Editar
+ms-settings:developers
+Ative o Modo Desenvolvedor
 
-Se estiver usando Windows, para evitar erros de plugins, ative o Modo Desenvolvedor (Developer Mode):
+Reinicie o computador, se necessário
 
-Pressione Win + R e digite ms-settings:developers
+🌐 Executar no Navegador (caso o emulador não funcione)
+No terminal, execute:
 
-Ative o modo desenvolvedor e reinicie o computador, se necessário.
-
-Caso o emulador ou navegador não funcione corretamente faça o seguinte:
-
-Abra o terminal e digite:
-'''bash
+bash
+Copiar
+Editar
 flutter run -d web-server
-exit
-pegue o link gerado (ex: http://localhost:12345) e cole no navegador de sua preferência.
+Copie o link gerado (ex: http://localhost:12345) e cole no navegador de sua preferência.
 
-Serviços web utilizados:
+🔐 Permissões e APIs
+A API key do Google Maps já está configurada no código
 
-- Google maps;
-- Firebase;
-- NewsAPI.
+O app solicitará permissão de localização em tempo de execução
 
-Dependências principais
-google_maps_flutter
+O app utiliza o Firebase Cloud Messaging para notificações
 
-geolocator
+🌍 Serviços Web Utilizados
+🗺️ Google Maps
 
-permission_handler
+🔥 Firebase
 
-provider
+📰 NewsAPI (notícias sobre autismo)
+
+📦 Dependências Principais
+yaml
+Copiar
+Editar
+google_maps_flutter: ^2.x.x
+geolocator: ^10.x.x
+permission_handler: ^11.x.x
+provider: ^6.x.x
+http: ^1.x.x
+firebase_core: ^3.x.x
+firebase_messaging: ^15.x.x
+(Verifique o pubspec.yaml para a versão exata.)
+
+
 
