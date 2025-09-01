@@ -30,6 +30,11 @@ http://localhost:8080/api/jogos
 http://localhost:8080/api/mapa
 ```
 
+Senha e usuário:
+
+admin
+admin123
+
 Documentação com Swagger:
 
 ```bash
