@@ -32,8 +32,10 @@ http://localhost:8080/api/mapa
 
 Senha e usuário:
 
+```bash
 admin
 admin123
+```
 
 Documentação com Swagger:
 
@@ -59,6 +61,13 @@ No terminal, para rodar o frontend, execute:
 ```bash
 flutter pub get
 flutter run
+```
+
+O cadastro é funcional, mas pode utilizar esta conta:
+
+```bash
+usuário@gmail.com
+senha123
 ```
 
 ## 💡 Caso esteja usando Windows:
