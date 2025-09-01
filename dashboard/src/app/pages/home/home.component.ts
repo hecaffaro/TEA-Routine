@@ -8,7 +8,6 @@ import { ApiService } from '../../services/api';
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule, FormsModule],
-  providers: [provideHttpClient()],
   template: `
     <h2>Cadastro de Usuário</h2>
     <form (ngSubmit)="salvar()" #form="ngForm">
