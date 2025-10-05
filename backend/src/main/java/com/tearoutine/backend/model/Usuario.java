@@ -2,6 +2,7 @@ package com.tearoutine.backend.model;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name = "usuario")
 public class Usuario {
@@ -11,10 +12,16 @@ public class Usuario {
     private Long id;
 
     @Column(nullable = false, unique = true)
+
     private String email;
 
     @Column(nullable = false)
+
     private String senha;
+    
+    @Column(nullable = false)
+
+    private String nome;
 
     // Getters e Setters
     public Long getId() { return id; }
@@ -25,4 +32,7 @@ public class Usuario {
 
     public String getSenha() { return senha; }
     public void setSenha(String senha) { this.senha = senha; }
+    
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 }

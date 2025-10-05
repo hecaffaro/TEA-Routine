@@ -1,0 +1,9 @@
+@echo off
+echo Iniciando TEARoutine Backend...
+echo.
+echo Verificando Java...
+java -version
+echo.
+echo Executando aplicacao...
+java -jar target\backend-0.0.1-SNAPSHOT.jar
+pause

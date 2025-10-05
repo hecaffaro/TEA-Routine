@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api';
-import { HttpClientModule } from '@angular/common/http'
 
 @Component({
   selector: 'app-noticias',
@@ -24,10 +23,29 @@ import { HttpClientModule } from '@angular/common/http'
 })
 export class NoticiasComponent implements OnInit {
   noticias: any[] = [];
+  loading = false;
+  error: string | null = null;
 
   constructor(private api: ApiService) {}
 
   ngOnInit() {
-    this.api.getNoticias().subscribe(data => this.noticias = data);
+    this.loadNoticias();
+  }
+  
+  private loadNoticias() {
+    this.loading = true;
+    this.error = null;
+    
+    this.api.getNoticias().subscribe({
+      next: (data) => {
+        this.noticias = data || [];
+        this.loading = false;
+      },
+      error: (error) => {
+        this.error = 'Erro ao carregar notícias: ' + error;
+        this.loading = false;
+        console.error('Erro ao carregar notícias:', error);
+      }
+    });
   }
 }

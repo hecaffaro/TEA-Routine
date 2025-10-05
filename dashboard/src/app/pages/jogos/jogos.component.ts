@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api';
-import { HttpClientModule } from '@angular/common/http'
 
 @Component({
   selector: 'app-jogos',
@@ -21,10 +20,29 @@ import { HttpClientModule } from '@angular/common/http'
 })
 export class JogosComponent implements OnInit {
   jogos: any[] = [];
+  loading = false;
+  error: string | null = null;
 
   constructor(private api: ApiService) {}
 
   ngOnInit() {
-    this.api.getJogos().subscribe(data => this.jogos = data);
+    this.loadJogos();
+  }
+  
+  private loadJogos() {
+    this.loading = true;
+    this.error = null;
+    
+    this.api.getJogos().subscribe({
+      next: (data) => {
+        this.jogos = data || [];
+        this.loading = false;
+      },
+      error: (error) => {
+        this.error = 'Erro ao carregar jogos: ' + error;
+        this.loading = false;
+        console.error('Erro ao carregar jogos:', error);
+      }
+    });
   }
 }

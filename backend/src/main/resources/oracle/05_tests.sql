@@ -1,0 +1,47 @@
+-- Testes das Functions e Procedures Smart HAS
+
+-- Teste 1: Function FN_CONSUMO_MEDIO_USUARIO
+SELECT 'Teste Function Consumo Médio' as TESTE;
+SELECT FN_CONSUMO_MEDIO_USUARIO(2) as CONSUMO_MEDIO_USUARIO_2 FROM DUAL;
+SELECT FN_CONSUMO_MEDIO_USUARIO(999) as CONSUMO_USUARIO_INEXISTENTE FROM DUAL;
+
+-- Teste 2: Function FN_RELATORIO_SENSOR
+SELECT 'Teste Function Relatório Sensor' as TESTE;
+SELECT FN_RELATORIO_SENSOR(1) as RELATORIO_SENSOR_1 FROM DUAL;
+SELECT FN_RELATORIO_SENSOR(999) as RELATORIO_SENSOR_INEXISTENTE FROM DUAL;
+
+-- Teste 3: Inserir leituras críticas para testar alertas
+INSERT INTO LEITURA_SENSOR (SENSOR_ID, VALOR, UNIDADE) VALUES (1, 40.5, '°C'); -- Temperatura alta
+INSERT INTO LEITURA_SENSOR (SENSOR_ID, VALOR, UNIDADE) VALUES (2, 85.0, '%');  -- Umidade alta
+INSERT INTO LEITURA_SENSOR (SENSOR_ID, VALOR, UNIDADE) VALUES (3, 1, 'bool');  -- Movimento
+COMMIT;
+
+-- Teste 4: Executar procedure de alertas
+BEGIN
+    SP_PROCESSAR_ALERTAS_CRITICOS;
+END;
+/
+
+-- Verificar alertas gerados
+SELECT 'Alertas Gerados' as TESTE;
+SELECT * FROM ALERTA WHERE DATA_ALERTA >= SYSDATE - 1/24;
+
+-- Teste 5: Executar procedure de relatório
+BEGIN
+    SP_RELATORIO_CONSUMO_USUARIO(2, NULL);
+END;
+/
+
+-- Teste 6: Consultas integradas usando as functions
+SELECT 'Consultas com Functions' as TESTE;
+SELECT 
+    u.NOME,
+    FN_CONSUMO_MEDIO_USUARIO(u.ID) as CONSUMO_MEDIO
+FROM USUARIO u
+WHERE u.ID IN (2, 3);
+
+SELECT 
+    s.NOME,
+    FN_RELATORIO_SENSOR(s.ID) as RELATORIO
+FROM SENSOR s
+WHERE s.ID <= 3;

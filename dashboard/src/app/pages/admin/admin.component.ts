@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api';
-import { HttpClientModule } from '@angular/common/http'
-
-
 @Component({
   selector: 'app-admin',
   standalone: true,
@@ -29,10 +26,29 @@ import { HttpClientModule } from '@angular/common/http'
 })
 export class AdminComponent implements OnInit {
   usuarios: any[] = [];
+  loading = false;
+  error: string | null = null;
 
   constructor(private api: ApiService) {}
 
   ngOnInit() {
-    this.api.getUsuarios().subscribe(data => this.usuarios = data);
+    this.loadUsuarios();
+  }
+  
+  private loadUsuarios() {
+    this.loading = true;
+    this.error = null;
+    
+    this.api.getUsuarios().subscribe({
+      next: (data) => {
+        this.usuarios = data || [];
+        this.loading = false;
+      },
+      error: (error) => {
+        this.error = 'Erro ao carregar usuários: ' + error;
+        this.loading = false;
+        console.error('Erro ao carregar usuários:', error);
+      }
+    });
   }
 }

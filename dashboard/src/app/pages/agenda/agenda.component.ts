@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api';
-import { HttpClientModule } from '@angular/common/http'
 
 @Component({
   selector: 'app-agenda',
@@ -21,10 +20,29 @@ import { HttpClientModule } from '@angular/common/http'
 })
 export class AgendaComponent implements OnInit {
   eventos: any[] = [];
+  loading = false;
+  error: string | null = null;
 
   constructor(private api: ApiService) {}
 
   ngOnInit() {
-    this.api.getAgenda().subscribe(data => this.eventos = data);
+    this.loadEventos();
+  }
+  
+  private loadEventos() {
+    this.loading = true;
+    this.error = null;
+    
+    this.api.getAgenda().subscribe({
+      next: (data) => {
+        this.eventos = data || [];
+        this.loading = false;
+      },
+      error: (error) => {
+        this.error = 'Erro ao carregar eventos: ' + error;
+        this.loading = false;
+        console.error('Erro ao carregar agenda:', error);
+      }
+    });
   }
 }
