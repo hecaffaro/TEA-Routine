@@ -43,7 +43,13 @@ Documentação com Swagger:
 http://localhost:8080/swagger-ui.html
 ```
 
-No terminar, para rodar o dashboard com Angular, execute:
+Link do console H2 (Oracle):
+
+```bash
+http://localhost:8080/h2-console
+```
+
+No terminal, para rodar o dashboard com Angular, execute:
 
 ```bash
 cd dashboard
